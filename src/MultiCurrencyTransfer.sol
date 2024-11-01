@@ -1,8 +1,16 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.28;
-import {DataFeed} from "/Users/georgigeorgiev/Documents/Github/chainlink/contracts/src/v0.8/src/vrf/MockV3Aggregator.sol";
+
+import {DataFeed} from
+    "/Users/georgigeorgiev/Documents/Github/chainlink/contracts/src/v0.8/src/vrf/MockV3Aggregator.sol";
+
 contract MultiCurrencyTransfer {
-    enum Currency { ETH, BTC, SOL }
+    enum Currency {
+        ETH,
+        BTC,
+        SOL
+    }
+
     address private owner;
     mapping(address => mapping(Currency => uint256)) public balances;
     DataFeed private dataFeed;
@@ -46,7 +54,7 @@ contract MultiCurrencyTransfer {
 
         require(address(this).balance >= ethEquivalent, "Insufficient contract balance");
 
-        (bool success, ) = msg.sender.call{value: ethEquivalent}("");
+        (bool success,) = msg.sender.call{value: ethEquivalent}("");
         require(success, "ETH transfer failed");
 
         balances[msg.sender][Currency.SOL] -= _solAmount;
@@ -60,12 +68,11 @@ contract MultiCurrencyTransfer {
         uint256 btcEthPrice = uint256(dataFeed.getBtcEthPrice());
         uint256 ethEquivalent = (_btcAmount * btcEthPrice) / 1 ether;
         require(address(this).balance >= ethEquivalent, "Insufficient contract balance");
-        (bool success, ) = msg.sender.call{value: ethEquivalent}("");
+        (bool success,) = msg.sender.call{value: ethEquivalent}("");
         require(success, "ETH transfer failed");
         balances[msg.sender][Currency.BTC] -= _btcAmount;
         emit Withdraw(msg.sender, Currency.BTC, _btcAmount);
     }
-
 
     function getBalance(address _user, Currency _currency) external view returns (uint256) {
         return balances[_user][_currency];
