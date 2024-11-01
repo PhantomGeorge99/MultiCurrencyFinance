@@ -41,9 +41,7 @@ contract MultiCurrencyTransfer {
     function withdrawSOL(uint256 _solAmount) external {
         require(_solAmount > 0, "Amount must be greater than zero");
         require(balances[msg.sender][Currency.SOL] >= _solAmount, "Insufficient SOL balance");
-
         uint256 solEthPrice = uint256(dataFeed.getSolEthPrice());
-
         uint256 ethEquivalent = (_solAmount * solEthPrice) / 1 ether;
 
         require(address(this).balance >= ethEquivalent, "Insufficient contract balance");
