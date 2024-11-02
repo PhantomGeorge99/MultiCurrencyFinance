@@ -1,8 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.28;
 
-import {DataFeed} from
-    "../oracles/DataFeed.sol";
+import {DataFeed} from "../oracles/DataFeed.sol";
 
 contract MultiCurrencyTransfer {
     enum Currency {
