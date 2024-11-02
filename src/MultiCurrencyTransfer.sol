@@ -2,7 +2,7 @@
 pragma solidity ^0.8.28;
 
 import {DataFeed} from
-    "/Users/georgigeorgiev/Documents/Github/chainlink/contracts/src/v0.8/src/vrf/MockV3Aggregator.sol";
+    "../oracles/DataFeed.sol";
 
 contract MultiCurrencyTransfer {
     enum Currency {
@@ -19,7 +19,7 @@ contract MultiCurrencyTransfer {
     event Withdraw(address indexed user, Currency currency, uint256 amount);
     event Transfer(address indexed from, address indexed to, Currency currency, uint256 amount);
 
-    constructor(address _dataFeedAddress) {
+    constructor() {
         owner = msg.sender;
         dataFeed = new DataFeed();
     }
