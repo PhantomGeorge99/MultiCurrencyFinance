@@ -76,4 +76,24 @@ contract MultiCurrencyTransfer {
     function getBalance(address _user, Currency _currency) external view returns (uint256) {
         return balances[_user][_currency];
     }
+
+    function getBtcPrice() external view returns (uint256) {
+        return dataFeed.getBtcUsdPrice();
+    }
+
+    function getBtcToEth() external view returns (uint256) {
+        return dataFeed.getBtcUsdPrice();
+    }
+
+    function getEthPrice() external view returns (uint256) {
+        return dataFeed.getBtcUsdPrice();
+    }
+
+    function getSolPrice() external view returns (uint256) {
+        return dataFeed.getBtcUsdPrice();
+    }
+
+    function getSOLtoEth() external view returns (uint256) {
+        return dataFeed.getBtcUsdPrice();
+    }
 }
