@@ -22,5 +22,12 @@ contract DataFeed {
     function getSolEthPrice() external pure returns (uint256) {
         return 0.067 * 10**18; // Simulate SOL/ETH at 0.067 ETH
     }
+
+    function getBnbUsdPrice() external pure returns (uint256) {
+        return 564 * 10**18; // Simulate BNB/USD at $564
+    }
+    function getBnbEthPrice() external pure returns (uint256) {
+    return 0.23 * 10**18; // Simulate BNB/ETH at 0.23 ETH
+}
 }
 
