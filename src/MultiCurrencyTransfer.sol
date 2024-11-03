@@ -87,7 +87,19 @@ contract MultiCurrencyTransfer {
         require(success, "Fee transfer failed");
     }
 
-    function getBalance(address user, Currency currency) external view returns (uint256) {
-        return balances[user][currency];
+    function getCurrentBtcPriceInEth() external view returns (uint256) {
+        return dataFeed.getBtcEthPrice(); // Get current BTC price in ETH
+    }
+
+    function getCurrentSolPriceInEth() external view returns (uint256) {
+        return dataFeed.getSolEthPrice(); // Get current SOL price in ETH
+    }
+
+    function getCurrentBnbPriceInEth() external view returns (uint256) {
+        return dataFeed.getBnbEthPrice(); // Get current BNB price in ETH
+    }
+
+    function getBalance(Currency currency) external view returns (uint256) {
+        return balances[msg.sender][currency];
     }
 }
