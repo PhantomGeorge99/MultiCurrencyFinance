@@ -3,9 +3,6 @@ pragma solidity ^0.8.28;
 
 contract DataFeed {
 
-    function getEthUsdPrice() external pure returns (uint256) {
-        return 2700 * 10**18; // Simulate ETH/USD at $2700
-    }
 
     function getBtcUsdPrice() external pure returns (uint256) {
         return 70590 * 10**18; // Simulate BTC/USD at $70,590
