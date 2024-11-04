@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MultiCurrency Transfer dApp</title>
+</head>
+<body>
+    <h1>MultiCurrency Transfer dApp</h1>
+
+    <div>
+        <label>Currency to Buy:</label>
+        <input type="text" id="currencyInput" placeholder="Enter BTC, BNB, SOL">
+        <label>Amount in ETH:</label>
+        <input type="number" id="ethAmountInput" placeholder="0.1 ETH">
+        <button onclick="buyCurrency()">Buy Currency</button>
+    </div>
+
+    <div>
+        <button onclick="withdrawAllFunds()">Withdraw All Funds</button>
+    </div>
+
+    <div>
+        <button onclick="withdrawTransactionFees()">Withdraw Transaction Fees (Owner Only)</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
