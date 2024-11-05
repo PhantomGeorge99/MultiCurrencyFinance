@@ -24,6 +24,21 @@
         <button onclick="withdrawTransactionFees()">Withdraw Transaction Fees (Owner Only)</button>
     </div>
 
+    <hr>
+    
+    <div>
+        <h2>Check Live Price Data</h2>
+        <button onclick="getLivePrice('BTC', 'USD')">Get BTC Price in USD</button>
+        <button onclick="getLivePrice('BTC', 'ETH')">Get BTC Price in ETH</button><br>
+        <button onclick="getLivePrice('SOL', 'USD')">Get SOL Price in USD</button>
+        <button onclick="getLivePrice('SOL', 'ETH')">Get SOL Price in ETH</button><br>
+        <button onclick="getLivePrice('BNB', 'USD')">Get BNB Price in USD</button>
+        <button onclick="getLivePrice('BNB', 'ETH')">Get BNB Price in ETH</button><br>
+        
+        <div id="priceDisplay"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/ethers/dist/ethers.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
